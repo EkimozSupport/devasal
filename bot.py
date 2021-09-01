@@ -17,7 +17,7 @@ client = TelegramClient('client', api_id, api_hash).start(bot_token=bot_token)
 
 anlik_calisan = []
 
-@client.on(events.NewMessage(pattern='^(?i)/Mango'))
+@client.on(events.NewMessage(pattern='^(?i)/son'))
 async def cancel(event):
   global anlik_calisan
   anlik_calisan.remove(event.chat_id)
@@ -25,28 +25,28 @@ async def cancel(event):
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
-  await event.reply("**Mango Davet Botuyum**, Grup veya kanaldaki neredeyse tüm üyelerden bahsedebilirim ★\nDaha fazla bilgi için **/help**'i tıklayın.",
+  await event.reply("**Minik Davet Botuyum**, Grup veya kanaldaki neredeyse tüm üyelerden bahsedebilirim ★\nDaha fazla bilgi için **/help**'i tıklayın.",
                     buttons=(
-                      [Button.url('🌟 Beni Bir Gruba Ekle', 'https://t.me/MangodavetBot?startgroup=a'),
-                      Button.url('📣 Support', 'https://t.me/Mangodestek'),
+                      [Button.url('🌟 Beni Bir Gruba Ekle', 'https://t.me/MinikdavetBot?startgroup=a'),
+                      Button.url('📣 Support', 'https://t.me/Smailesi'),
                       Button.url('👮‍♂️ ÜCRETLİ BOT KANAL', 'https://t.me/Ucretlibotlar')]
                     ),
                     link_preview=False
                    )
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  helptext = "**MANGO DAVET BOT'un Yardım Menüsü**\n\nKomut: /Davet \n  Bu komutu, başkalarına bahsetmek istediğiniz metinle birlikte kullanabilirsiniz. \n`Örnek: /Davet Günaydın!`  \nBu komutu yanıt olarak kullanabilirsiniz. herhangi bir mesaj Bot, yanıtlanan iletiye kullanıcıları etiketleyerek ve /Mango yazarak etiketleme işlemi biter. 🤗"
+  helptext = "**MİNİK DAVET BOT'un Yardım Menüsü**\n\nKomut: /davet \n  Bu komutu, başkalarına bahsetmek istediğiniz metinle birlikte kullanabilirsiniz. \n`Örnek: /Davet Günaydın!`  \nBu komutu yanıt olarak kullanabilirsiniz. herhangi bir mesaj Bot, yanıtlanan iletiye kullanıcıları etiketleyerek ve /Son yazarak etiketleme işlemi biter. 🤗"
   await event.reply(helptext,
                     buttons=(
-                      [Button.url('🌟 Beni Bir Gruba Ekle', 'https://t.me/MangodavetBot?startgroup=a'),
-                       Button.url('📣 Support', 'https://t.me/MangoDestek'),
+                      [Button.url('🌟 Beni Bir Gruba Ekle', 'https://t.me/MinikdavetBot?startgroup=a'),
+                       Button.url('📣 Support', 'https://t.me/Smailesi'),
                       Button.url('👮‍♂️ Ucretli Bot KANAL', 'https://t.me/Ucretlibotlar')]
                     ),
                     link_preview=False
                    )
 
 
-@client.on(events.NewMessage(pattern="^/Davet ?(.*)"))
+@client.on(events.NewMessage(pattern="^/davet ?(.*)"))
 async def mentionall(event):
   global anlik_calisan
   if event.is_private:
@@ -79,7 +79,7 @@ async def mentionall(event):
       usrnum += 1
       usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}) "
       if event.chat_id not in anlik_calisan:
-        await event.respond("Etikeletme İşlemi Bitti BU TAM MANGO BİR OLAY 🛑 İyi günler dileriz 🤗")
+        await event.respond("Etikeletme İşlemi Bitti Sohbetinize devam edebilirsiniz 🛑 İyi günler dileriz 🤗")
         return
       if usrnum == 5:
         await client.send_message(event.chat_id, f"{usrtxt}\n\n{msg}")
@@ -97,7 +97,7 @@ async def mentionall(event):
       usrnum += 1
       usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}) "
       if event.chat_id not in anlik_calisan:
-        await event.respond("İşlem Başarılı Bir Şekilde Durduruldu ❌")
+        await event.respond("İşlem Başarılı Bir Şekilde Durduruldu Hepinizi seviyorum ❌")
         return
       if usrnum == 5:
         await client.send_message(event.chat_id, usrtxt, reply_to=msg)
@@ -106,5 +106,5 @@ async def mentionall(event):
         usrtxt = ""
 
 
-print(">> Bot çalıyor merak etme 👮‍♂️ @MangoDestek bilgi alabilirsin <<")
+print(">> Bot çalıyor merak etme 👮‍♂️ @smailesi bilgi alabilirsin <<")
 client.run_until_disconnected()
