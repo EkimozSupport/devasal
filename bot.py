@@ -25,22 +25,22 @@ async def cancel(event):
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
-  await event.reply("**Minik Davet Botuyum**, Grup veya kanaldaki neredeyse tüm üyelerden bahsedebilirim ★\nDaha fazla bilgi için **/help**'i tıklayın.",
+  await event.reply("**Mango Davet Botuyum**, Grup veya kanaldaki neredeyse tüm üyelerden bahsedebilirim ★\nDaha fazla bilgi için **/help**'i tıklayın.",
                     buttons=(
-                      [Button.url('🌟 Beni Bir Gruba Ekle', 'https://t.me/MinikdavetBot?startgroup=a'),
-                      Button.url('📣 Support', 'https://t.me/Smailesi'),
-                      Button.url('👮‍♂️ ÜCRETLİ BOT KANAL', 'https://t.me/Ucretlibotlar')]
+                      [Button.url('🌟 Gruba Ekle', 'https://t.me/MangodavetBot?startgroup=a'),
+                      Button.url('📣 Support', 'https://t.me/Sancakailesi'),
+                      Button.url('👮‍♂️ KANAL', 'https://t.me/Kizilsancakbilgi')]
                     ),
                     link_preview=False
                    )
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  helptext = "**MİNİK DAVET BOT'un Yardım Menüsü**\n\nKomut: /davet \n  Bu komutu, başkalarına bahsetmek istediğiniz metinle birlikte kullanabilirsiniz. \n`Örnek: /Davet Günaydın!`  \nBu komutu yanıt olarak kullanabilirsiniz. herhangi bir mesaj Bot, yanıtlanan iletiye kullanıcıları etiketleyerek ve /Son yazarak etiketleme işlemi biter. 🤗"
+  helptext = "**Mango DAVET BOT'un Yardım Menüsü**\n\nKomut: /davet \n  Bu komutu, başkalarına bahsetmek istediğiniz metinle birlikte kullanabilirsiniz. \n`Örnek: /davet Günaydın!`  \nBu komutu yanıt olarak kullanabilirsiniz. herhangi bir mesaj Bot, yanıtlanan iletiye kullanıcıları etiketleyerek ve /mango yazarak etiketleme işlemi biter. 🤗"
   await event.reply(helptext,
                     buttons=(
-                      [Button.url('🌟 Beni Bir Gruba Ekle', 'https://t.me/MinikdavetBot?startgroup=a'),
-                       Button.url('📣 Support', 'https://t.me/Smailesi'),
-                      Button.url('👮‍♂️ Ucretli Bot KANAL', 'https://t.me/Ucretlibotlar')]
+                      [Button.url('🌟 Gruba Ekle', 'https://t.me/MangodavetBot?startgroup=a'),
+                       Button.url('📣 Support', 'https://t.me/SancakAilesi'),
+                      Button.url('👮‍♂️ Ucretli Bot KANAL', 'https://t.me/Kizilsancakbilgi')]
                     ),
                     link_preview=False
                    )
@@ -79,7 +79,7 @@ async def mentionall(event):
       usrnum += 1
       usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}) "
       if event.chat_id not in anlik_calisan:
-        await event.respond("Etikeletme İşlemi Bitti Sohbetinize devam edebilirsiniz 🛑 İyi günler dileriz 🤗")
+        await event.respond("Etikeletme İşlemi Bitti Bu Tam bir Mango Olay 💎🤭 Sohbetinize devam edebilirsiniz 🛑 İyi günler dileriz 🤗")
         return
       if usrnum == 5:
         await client.send_message(event.chat_id, f"{usrtxt}\n\n{msg}")
@@ -106,5 +106,5 @@ async def mentionall(event):
         usrtxt = ""
 
 
-print(">> Bot çalıyor merak etme 👮‍♂️ @smailesi bilgi alabilirsin <<")
+print(">> Bot çalıyor merak etme 👮‍♂️ @sancakailesi bilgi alabilirsin <<")
 client.run_until_disconnected()
